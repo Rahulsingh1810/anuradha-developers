@@ -73,13 +73,21 @@ export function Navbar() {
           )}
         >
           <nav className="flex h-20 items-center justify-between px-6 md:px-10">
-            <Link href="/">
+            <Link href="/" className="flex items-center gap-2.5">
               <motion.img
                 whileHover={{ scale: 1.05 }}
-                src="/logo-2.png"
-                alt="Anuradha Developers & Design Group"
-                className="h-14 w-auto"
+                src="/logo.png"
+                alt="Anuradha Developers"
+                className="h-10 sm:h-12 w-auto"
               />
+              <div className="leading-none">
+                <span className="block font-heading text-lg sm:text-xl font-extrabold text-espresso tracking-wide">
+                  ANURADHA
+                </span>
+                <span className="block text-[8px] sm:text-[10px] tracking-[0.12em] sm:tracking-[0.15em] uppercase text-gold font-semibold mt-0.5">
+                  Developers & Design Group
+                </span>
+              </div>
             </Link>
 
             {/* Desktop Navigation */}
@@ -144,11 +152,21 @@ export function Navbar() {
               transition={{ duration: 0.45 }}
             >
               <div className="flex h-24 items-center justify-between px-6">
-                <img
-                  src="/logo-2.png"
-                  alt="Anuradha Developers"
-                  className="h-14"
-                />
+                <div className="flex items-center gap-3">
+                  <img
+                    src="/logo.png"
+                    alt="Anuradha Developers"
+                    className="h-12"
+                  />
+                  <div className="leading-none">
+                    <span className="block font-heading text-xl font-bold text-espresso tracking-wide">
+                      ANURADHA
+                    </span>
+                    <span className="block text-[10px] tracking-[0.15em] uppercase text-gold font-semibold mt-0.5">
+                      Developers & Design Group
+                    </span>
+                  </div>
+                </div>
 
                 <button
                   onClick={() => setMenuOpen(false)}

@@ -24,12 +24,20 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 md:px-10 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         {/* Brand */}
         <div className="lg:col-span-1">
-          <Link href="/" className="flex items-center mb-4">
+          <Link href="/" className="flex items-center gap-3 mb-4">
             <img
-              src="/logo-2.png"
+              src="/logo.png"
               alt="Anuradha Developers Logo"
-              className="h-14 w-auto object-contain"
+              className="h-12 w-auto object-contain"
             />
+            <div className="leading-none">
+              <span className="block font-heading text-xl font-bold text-cream tracking-wide">
+                ANURADHA
+              </span>
+              <span className="block text-[10px] tracking-[0.15em] uppercase text-gold font-semibold mt-0.5">
+                Developers & Design Group
+              </span>
+            </div>
           </Link>
           <p className="text-sm leading-relaxed text-gold-soft/60 mb-6">
             Building Excellence. Creating Value. Delivering Trust. Hyderabad&apos;s trusted
@@ -110,8 +118,8 @@ export function Footer() {
               <div className="flex items-start gap-3 text-sm">
                 <MapPin size={15} className="mt-0.5 flex-shrink-0 text-gold" />
                 <address className="not-italic leading-relaxed">
-                  Ambience Avenue, Block B, Flat No. 204,<br />
-                  Srinagar Colony,<br />
+                  Ambience Avenue, Block B, Flat No. 204,
+                  Srinagar Colony,
                   Hyderabad – 500073, Telangana
                 </address>
               </div>
