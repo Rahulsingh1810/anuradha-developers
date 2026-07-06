@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils'
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/projects', label: 'Projects' },
+  { href: '/services', label: 'Services' },
   { href: '/contact', label: 'Contact' },
 ]
 
@@ -66,7 +66,7 @@ export function Navbar() {
       >
         <div
           className={cn(
-            'mx-auto max-w-7xl rounded-full border border-gray-200/80 bg-white transition-all duration-500',
+            'mx-auto max-w-7xl rounded-full border border-border bg-white transition-all duration-500',
             scrolled
               ? 'shadow-[0_8px_40px_rgba(0,0,0,0.08)]'
               : 'shadow-[0_8px_30px_rgba(0,0,0,0.04)]'
@@ -77,7 +77,7 @@ export function Navbar() {
               <motion.img
                 whileHover={{ scale: 1.05 }}
                 src="/logo-2.png"
-                alt="Purple Nest"
+                alt="Anuradha Developers & Design Group"
                 className="h-14 w-auto"
               />
             </Link>
@@ -94,8 +94,8 @@ export function Navbar() {
                       className={cn(
                         'rounded-full px-5 py-2 font-medium transition-all duration-300',
                         active
-                          ? 'bg-[#5c2967] text-white'
-                          : 'text-black hover:bg-black/5'
+                          ? 'bg-espresso text-cream'
+                          : 'text-espresso hover:bg-espresso/5'
                       )}
                     >
                       {link.label}
@@ -108,14 +108,14 @@ export function Navbar() {
             {/* Desktop CTA */}
             <Link
               href="/contact"
-              className="hidden rounded-full bg-[#5c2967] px-6 py-3 font-semibold text-white transition hover:scale-105 md:inline-flex"
+              className="hidden rounded-full bg-gold px-6 py-3 font-semibold text-espresso transition hover:scale-105 hover:bg-gold-soft md:inline-flex"
             >
-              Book a Consultation
+              Get in Touch
             </Link>
 
             {/* Mobile Menu Button */}
             <button
-              className="p-2 text-black md:hidden"
+              className="p-2 text-espresso md:hidden"
               onClick={() => setMenuOpen((v) => !v)}
             >
               {menuOpen ? <X /> : <Menu />}
@@ -129,7 +129,7 @@ export function Navbar() {
           <>
             {/* Overlay */}
             <motion.div
-              className="fixed inset-0 z-40 bg-black/30 backdrop-blur-lg md:hidden"
+              className="fixed inset-0 z-40 bg-espresso/30 backdrop-blur-lg md:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -137,7 +137,7 @@ export function Navbar() {
 
             {/* Mobile Menu */}
             <motion.div
-              className="fixed inset-0 z-50 bg-white md:hidden"
+              className="fixed inset-0 z-50 bg-cream md:hidden"
               initial={{ y: '-100%' }}
               animate={{ y: 0 }}
               exit={{ y: '-100%' }}
@@ -146,15 +146,15 @@ export function Navbar() {
               <div className="flex h-24 items-center justify-between px-6">
                 <img
                   src="/logo-2.png"
-                  alt="Purple Nest"
+                  alt="Anuradha Developers"
                   className="h-14"
                 />
 
                 <button
                   onClick={() => setMenuOpen(false)}
-                  className="flex h-12 w-12 items-center justify-center rounded-full bg-black/5"
+                  className="flex h-12 w-12 items-center justify-center rounded-full bg-espresso/5"
                 >
-                  <X className="text-black" />
+                  <X className="text-espresso" />
                 </button>
               </div>
 
@@ -174,8 +174,8 @@ export function Navbar() {
                         className={cn(
                           'text-4xl font-semibold transition-colors',
                           active
-                            ? 'text-[#5c2967]'
-                            : 'text-black hover:text-[#5c2967]'
+                            ? 'text-gold'
+                            : 'text-espresso hover:text-gold'
                         )}
                       >
                         {link.label}
@@ -183,8 +183,6 @@ export function Navbar() {
                     </motion.div>
                   )
                 })}
-
-                {/* Consultation button intentionally removed on mobile */}
               </nav>
             </motion.div>
           </>

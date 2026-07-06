@@ -1,416 +1,351 @@
 'use client'
 
 import { useState } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
-import { Phone, Mail, MapPin, Clock, CheckCircle2, Send } from 'lucide-react'
-
-const contactDetails = [
-  {
-    icon: Phone,
-    label: 'Phone',
-    value: '+91 99029 30927', 
-    href: 'tel:+919902930927',
-  },
-  {
-    icon: Phone,
-    label: 'Phone',
-    value: '+91 7483790927',
-    href: 'tel:+917483790927',
-  },
-  {
-    icon: Mail,
-    label: 'Email',
-    value: 'Purplenest27@gmail.com',
-    href: 'mailto:Purplenest27@gmail.com',
-  },
-  {
-    icon: MapPin,
-    label: 'Office',
-    value: 'Ground Floor, No 40, 6th Sector, 14th Cross, HSR Layout, Bengaluru – 560102',
-    href: 'https://maps.google.com/?q=HSR+Layout+Bengaluru',
-  },
-  {
-    icon: Clock,
-    label: 'Hours',
-    value: 'Mon – Sat: 9:00 AM – 7:00 PM',
-    href: null,
-  },
-]
-
-const interests = [
-  'Residential Property',
-  'Luxury Apartment',
-  'Commercial Space',
-  'Investment Property',
-  'Site Visit Request',
-  'General Enquiry',
-]
+import { motion } from 'framer-motion'
+import {
+  Phone,
+  Mail,
+  MapPin,
+  User,
+  MessageSquare,
+  Send,
+  CheckCircle2,
+  Building2,
+} from 'lucide-react'
 
 export default function ContactPage() {
-  const prefersReducedMotion = useReducedMotion()
-  const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const [form, setForm] = useState({
+  const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    interest: '',
-    budget: '',
+    subject: '',
     message: '',
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const fadeUp = (delay = 0) =>
-    prefersReducedMotion
-      ? {}
-      : {
-          initial: { opacity: 0, y: 24 },
-          animate: { opacity: 1, y: 0, transition: { duration: 0.55, delay } },
-        }
-
-  function handleChange(
+  const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  ) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  async function handleSubmit(e: React.FormEvent) {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!form.name || !form.phone) {
-      setError('Please fill in all required fields.')
-      return
-    }
-    setLoading(true)
+    if (!formData.name || !formData.phone) return
+
+    setIsSubmitting(true)
     setError(null)
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          type: 'enquiry',
-          ...form,
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'contact', ...formData }),
       })
 
       const data = await response.json()
       if (response.ok) {
-        setSubmitted(true)
+        setIsSuccess(true)
       } else {
-        setError(data.error || 'Failed to send enquiry. Please try again.')
+        setError(data.error || 'Failed to send message. Please try again.')
       }
-    } catch (err) {
-      setError('An error occurred. Please check your connection and try again.')
+    } catch {
+      setError('An error occurred. Please try again.')
     } finally {
-      setLoading(false)
+      setIsSubmitting(false)
     }
   }
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative pt-40 pb-24 overflow-hidden bg-black">
-  {/* Background Image */}
-  <img
-    src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1600&q=60"
-    alt=""
-    aria-hidden="true"
-    className="absolute inset-0 h-full w-full object-cover opacity-100"
-  />
+      {/* Hero Banner */}
+      <section className="relative pt-40 pb-20 bg-espresso overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-espresso via-espresso/95 to-gold/10" />
+        <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-10">
+          <span className="text-gold text-xs tracking-widest uppercase font-semibold mb-4 block">
+            Get in Touch
+          </span>
+          <h1 className="font-heading text-6xl md:text-7xl font-light text-cream leading-[1.05] mb-6 text-balance">
+            Contact <span className="text-gold font-semibold italic">Us</span>
+          </h1>
+          <p className="text-gold-soft/70 text-lg max-w-2xl leading-relaxed">
+            We&apos;d love to hear from you. Whether you have a project in mind or
+            want to learn more about our services — reach out to us.
+          </p>
+        </div>
+      </section>
 
-  {/* Subtle Purple Overlay */}
-  <div className="absolute inset-0 bg-[#5c2967]/40" />
-
-  <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-10">
-    <motion.div {...fadeUp(0.1)}>
-      <span className="mb-5 inline-block text-xs font-semibold uppercase tracking-widest text-[#F5D78E]/70">
-        Get in Touch
-      </span>
-
-      <h1 className="mb-5 text-balance font-heading text-6xl font-light leading-tight text-[#faf8f5] md:text-7xl">
-        Let&apos;s Find Your{" "}
-        <span className="font-semibold italic text-[#F5D78E]">
-          Perfect Nest
-        </span>
-      </h1>
-
-      <p className="max-w-xl text-lg leading-relaxed text-[#F5D78E]/80">
-        Speak with our expert team — completely free. We&apos;ll understand your
-        requirements and help you make the right property decision.
-      </p>
-    </motion.div>
-  </div>
-
-  {/* Bottom Gradient */}
-  <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/20 to-transparent" />
-</section>
-
-      <section className="py-24 bg-[#faf8f5]">
-        <div className="mx-auto max-w-7xl px-6 md:px-10 grid grid-cols-1 lg:grid-cols-5 gap-12">
-          {/* Contact Info */}
-          <motion.aside
-            {...fadeUp(0.1)}
-            className="lg:col-span-2 flex flex-col gap-8"
-          >
-            <div>
-              <h2 className="font-heading text-4xl font-light text-[#1a0d2e] mb-3 text-balance">
-                We&apos;re Here to{' '}
-                <span className="text-[#5c2967] italic font-semibold">Help You</span>
-              </h2>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                Whether you&apos;re a first-time homebuyer, a seasoned investor, or exploring your
-                options — our team is ready to guide you with honest, personalised advice.
-              </p>
-            </div>
-
-            <ul className="flex flex-col gap-5" aria-label="Contact information">
-              {contactDetails.map(({ icon: Icon, label, value, href }) => (
-                <li key={value}>
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-2xl bg-[#5c2967]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Icon size={17} className="text-[#5c2967]" />
-                    </div>
-                    <div>
-                      <p className="text-[10px] text-muted-foreground tracking-widest uppercase font-semibold mb-1">
-                        {label}
-                      </p>
-                      {href ? (
-                        <a
-                          href={href}
-                          target={href.startsWith('http') ? '_blank' : undefined}
-                          rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                          className="text-foreground text-sm font-medium hover:text-[#5c2967] transition-colors leading-relaxed"
-                        >
-                          {value}
-                        </a>
-                      ) : (
-                        <p className="text-foreground text-sm font-medium leading-relaxed">{value}</p>
-                      )}
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-
-            {/* Map embed placeholder */}
-            {/* <div className="rounded-3xl overflow-hidden border border-border h-56 bg-muted relative">
-              <img
-                src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=600&q=70"
-                alt="Map showing HSR Layout, Bengaluru location"
-                className="w-full h-full object-cover opacity-60"
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <a
-                  href="https://maps.google.com/?q=HSR+Layout+Bengaluru"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-[#5c2967] text-[#F5D78E] px-5 py-2.5 rounded-full text-sm font-semibold shadow-lg hover:bg-[#7e3e8c] transition-colors"
-                >
-                  <MapPin size={14} />
-                  Open in Maps
-                </a>
+      {/* Contact Content */}
+      <section className="py-28 bg-background">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+            {/* Contact Info */}
+            <div className="lg:col-span-2 space-y-8">
+              <div>
+                <h2 className="font-heading text-3xl font-semibold text-espresso mb-6">
+                  Reach Out to Us
+                </h2>
+                <p className="text-muted-foreground leading-relaxed mb-8">
+                  Anuradha Developers & Design Group is always ready to discuss
+                  your construction and infrastructure needs.
+                </p>
               </div>
-            </div> */}
 
-            {/* CTA card */}
-            <div className="rounded-3xl bg-[#5c2967] p-7">
-              <p className="font-heading text-2xl font-semibold text-[#faf8f5] mb-2">
-                Prefer a call?
-              </p>
-              <p className="text-[#F5D78E]/60 text-sm mb-5">
-                Our team is available Monday to Saturday, 9 AM – 7 PM.
-              </p>
-              <a
-                href="tel:+919902930927"
-                className="flex items-center gap-2 w-full justify-center py-3.5 rounded-2xl bg-[#F5D78E] text-[#5c2967] font-semibold text-sm tracking-wide hover:bg-[#fae9bc] transition-colors"
-              >
-                <Phone size={15} />
-                Call Now
-              </a>
-            </div>
-          </motion.aside>
-
-          {/* Form */}
-          <motion.div {...fadeUp(0.2)} className="lg:col-span-3">
-            <div className="bg-card border border-border rounded-[2rem] p-8 md:p-10 shadow-sm">
-              {submitted ? (
-                <div className="flex flex-col items-center justify-center py-16 text-center gap-5">
-                  <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center">
-                    <CheckCircle2 size={32} className="text-emerald-600" />
+              {/* Founder */}
+              <div className="bg-card border border-border rounded-2xl p-6">
+                <div className="flex items-center gap-4 mb-3">
+                  <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center">
+                    <User size={20} className="text-gold" />
                   </div>
                   <div>
-                    <h3 className="font-heading text-3xl font-semibold text-foreground mb-2">
-                      Enquiry Received!
+                    <p className="font-semibold text-foreground">Mr. Dasari Prasad</p>
+                    <p className="text-muted-foreground text-sm">Founder</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Phone */}
+              <div className="space-y-3">
+                <a
+                  href="tel:+917095949111"
+                  className="flex items-center gap-4 bg-card border border-border rounded-2xl p-5 hover:border-gold/40 transition-colors group"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center group-hover:bg-espresso transition-colors">
+                    <Phone size={18} className="text-gold" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Phone</p>
+                    <p className="font-semibold text-foreground">+91 70959 49111</p>
+                  </div>
+                </a>
+                <a
+                  href="tel:+919849151190"
+                  className="flex items-center gap-4 bg-card border border-border rounded-2xl p-5 hover:border-gold/40 transition-colors group"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center group-hover:bg-espresso transition-colors">
+                    <Phone size={18} className="text-gold" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Phone</p>
+                    <p className="font-semibold text-foreground">+91 98491 51190</p>
+                  </div>
+                </a>
+              </div>
+
+              {/* Email */}
+              <a
+                href="mailto:pdasari1978@gmail.com"
+                className="flex items-center gap-4 bg-card border border-border rounded-2xl p-5 hover:border-gold/40 transition-colors group"
+              >
+                <div className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center group-hover:bg-espresso transition-colors">
+                  <Mail size={18} className="text-gold" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Email</p>
+                  <p className="font-semibold text-foreground">pdasari1978@gmail.com</p>
+                </div>
+              </a>
+
+              {/* Address */}
+              <div className="flex items-start gap-4 bg-card border border-border rounded-2xl p-5">
+                <div className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0">
+                  <MapPin size={18} className="text-gold" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Registered Office</p>
+                  <address className="not-italic font-semibold text-foreground leading-relaxed text-sm">
+                    Ambience Avenue, Block B, Flat No. 204<br />
+                    Srinagar Colony, Hyderabad – 500073<br />
+                    Telangana, India
+                  </address>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <div className="lg:col-span-3">
+              <div className="bg-card border border-border rounded-3xl p-8 md:p-10">
+                {!isSuccess ? (
+                  <>
+                    <h3 className="font-heading text-2xl font-semibold text-foreground mb-2">
+                      Send Us a Message
                     </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
-                      Thank you for reaching out to Purple Nest. Our team will get back to you
-                      within 24 hours to discuss your property requirements.
+                    <p className="text-muted-foreground text-sm mb-8">
+                      Fill out the form below and we&apos;ll get back to you shortly.
+                    </p>
+
+                    <form onSubmit={handleSubmit} className="space-y-5">
+                      {error && (
+                        <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-red-600 flex-shrink-0" />
+                          {error}
+                        </div>
+                      )}
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                          <label
+                            htmlFor="name"
+                            className="block text-xs font-bold uppercase tracking-wider text-foreground/70 mb-2"
+                          >
+                            Full Name *
+                          </label>
+                          <div className="relative">
+                            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gold/40">
+                              <User size={16} />
+                            </span>
+                            <input
+                              type="text"
+                              id="name"
+                              name="name"
+                              required
+                              value={formData.name}
+                              onChange={handleChange}
+                              placeholder="Your name"
+                              className="w-full pl-11 pr-4 py-3 bg-muted/50 border border-border rounded-2xl text-foreground text-sm focus:outline-none focus:border-gold/40 focus:ring-1 focus:ring-gold/40 transition-all placeholder:text-muted-foreground/50"
+                            />
+                          </div>
+                        </div>
+
+                        <div>
+                          <label
+                            htmlFor="phone"
+                            className="block text-xs font-bold uppercase tracking-wider text-foreground/70 mb-2"
+                          >
+                            Phone Number *
+                          </label>
+                          <div className="relative">
+                            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gold/40">
+                              <Phone size={16} />
+                            </span>
+                            <input
+                              type="tel"
+                              id="phone"
+                              name="phone"
+                              required
+                              value={formData.phone}
+                              onChange={handleChange}
+                              placeholder="+91 XXXXX XXXXX"
+                              className="w-full pl-11 pr-4 py-3 bg-muted/50 border border-border rounded-2xl text-foreground text-sm focus:outline-none focus:border-gold/40 focus:ring-1 focus:ring-gold/40 transition-all placeholder:text-muted-foreground/50"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <label
+                          htmlFor="email"
+                          className="block text-xs font-bold uppercase tracking-wider text-foreground/70 mb-2"
+                        >
+                          Email Address
+                        </label>
+                        <div className="relative">
+                          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gold/40">
+                            <Mail size={16} />
+                          </span>
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="your@email.com"
+                            className="w-full pl-11 pr-4 py-3 bg-muted/50 border border-border rounded-2xl text-foreground text-sm focus:outline-none focus:border-gold/40 focus:ring-1 focus:ring-gold/40 transition-all placeholder:text-muted-foreground/50"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label
+                          htmlFor="subject"
+                          className="block text-xs font-bold uppercase tracking-wider text-foreground/70 mb-2"
+                        >
+                          Subject
+                        </label>
+                        <div className="relative">
+                          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gold/40">
+                            <Building2 size={16} />
+                          </span>
+                          <select
+                            id="subject"
+                            name="subject"
+                            value={formData.subject}
+                            onChange={handleChange}
+                            className="w-full pl-11 pr-4 py-3 bg-muted/50 border border-border rounded-2xl text-foreground text-sm focus:outline-none focus:border-gold/40 focus:ring-1 focus:ring-gold/40 transition-all appearance-none"
+                          >
+                            <option value="">Select a topic</option>
+                            <option value="residential">Residential Construction</option>
+                            <option value="layout">Layout Development</option>
+                            <option value="industrial">Industrial & Infrastructure</option>
+                            <option value="government">Government Projects</option>
+                            <option value="general">General Enquiry</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div>
+                        <label
+                          htmlFor="message"
+                          className="block text-xs font-bold uppercase tracking-wider text-foreground/70 mb-2"
+                        >
+                          Message
+                        </label>
+                        <div className="relative">
+                          <span className="absolute left-4 top-4 text-gold/40">
+                            <MessageSquare size={16} />
+                          </span>
+                          <textarea
+                            id="message"
+                            name="message"
+                            rows={4}
+                            value={formData.message}
+                            onChange={handleChange}
+                            placeholder="Tell us about your project..."
+                            className="w-full pl-11 pr-4 py-3 bg-muted/50 border border-border rounded-2xl text-foreground text-sm focus:outline-none focus:border-gold/40 focus:ring-1 focus:ring-gold/40 transition-all placeholder:text-muted-foreground/50 resize-none"
+                          />
+                        </div>
+                      </div>
+
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full flex items-center justify-center gap-2 py-4 mt-2 rounded-2xl bg-gold text-espresso font-semibold text-sm tracking-wide hover:bg-gold-soft disabled:bg-gold/50 disabled:pointer-events-none transition-colors cursor-pointer shadow-lg shadow-gold/15"
+                      >
+                        {isSubmitting ? (
+                          <span className="inline-block w-5 h-5 rounded-full border-2 border-espresso border-t-transparent animate-spin" />
+                        ) : (
+                          <>
+                            <span>Send Message</span>
+                            <Send size={16} />
+                          </>
+                        )}
+                      </button>
+                    </form>
+                  </>
+                ) : (
+                  <div className="flex flex-col items-center justify-center py-16 text-center">
+                    <motion.div
+                      initial={{ scale: 0.8, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ type: 'spring', damping: 10, stiffness: 100 }}
+                      className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 mb-6"
+                    >
+                      <CheckCircle2 size={36} />
+                    </motion.div>
+                    <h3 className="font-heading text-2xl font-bold text-espresso mb-2">
+                      Thank You!
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed max-w-[320px]">
+                      Your message has been received. Our team will get back to you
+                      shortly.
                     </p>
                   </div>
-                  <button
-                    onClick={() => {
-                      setSubmitted(false)
-                      setError(null)
-                      setForm({ name: '', email: '', phone: '', interest: '', budget: '', message: '' })
-                    }}
-                    className="mt-2 px-6 py-2.5 rounded-full border border-[#5c2967]/30 text-[#5c2967] text-sm font-semibold hover:bg-[#5c2967]/8 transition-colors"
-                  >
-                    Submit another enquiry
-                  </button>
-                </div>
-              ) : (
-                <>
-                  <h2 className="font-heading text-3xl font-semibold text-foreground mb-1">
-                    Send us an Enquiry
-                  </h2>
-                  <p className="text-muted-foreground text-sm mb-8">
-                    Fill in the form and we&apos;ll get back to you promptly.
-                  </p>
-
-                  {error && (
-                    <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 text-sm rounded-2xl flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-red-600 flex-shrink-0" />
-                      {error}
-                    </div>
-                  )}
-
-                  <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
-                    {/* Name + Phone */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      <div className="flex flex-col gap-2">
-                        <label htmlFor="name" className="text-xs font-semibold text-foreground tracking-wide uppercase">
-                          Full Name <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          id="name"
-                          name="name"
-                          type="text"
-                          required
-                          value={form.name}
-                          onChange={handleChange}
-                          placeholder="Your full name"
-                          className="px-4 py-3 rounded-2xl border border-border bg-muted text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#5c2967]/30 focus:border-[#5c2967]/50 transition"
-                        />
-                      </div>
-                      <div className="flex flex-col gap-2">
-                        <label htmlFor="phone" className="text-xs font-semibold text-foreground tracking-wide uppercase">
-                          Phone Number <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          id="phone"
-                          name="phone"
-                          type="tel"
-                          required
-                          value={form.phone}
-                          onChange={handleChange}
-                          placeholder="+91 XXXXX XXXXX"
-                          className="px-4 py-3 rounded-2xl border border-border bg-muted text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#5c2967]/30 focus:border-[#5c2967]/50 transition"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Email */}
-                    <div className="flex flex-col gap-2">
-                      <label htmlFor="email" className="text-xs font-semibold text-foreground tracking-wide uppercase">
-                        Email Address
-                      </label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={form.email}
-                        onChange={handleChange}
-                        placeholder="you@example.com"
-                        className="px-4 py-3 rounded-2xl border border-border bg-muted text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#5c2967]/30 focus:border-[#5c2967]/50 transition"
-                      />
-                    </div>
-
-                    {/* Interest + Budget */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      <div className="flex flex-col gap-2">
-                        <label htmlFor="interest" className="text-xs font-semibold text-foreground tracking-wide uppercase">
-                          I&apos;m Interested In
-                        </label>
-                        <select
-                          id="interest"
-                          name="interest"
-                          value={form.interest}
-                          onChange={handleChange}
-                          className="px-4 py-3 rounded-2xl border border-border bg-muted text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-[#5c2967]/30 focus:border-[#5c2967]/50 transition appearance-none cursor-pointer"
-                        >
-                          <option value="">Select an option</option>
-                          {interests.map((i) => (
-                            <option key={i} value={i}>
-                              {i}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                      <div className="flex flex-col gap-2">
-                        <label htmlFor="budget" className="text-xs font-semibold text-foreground tracking-wide uppercase">
-                          Budget Range
-                        </label>
-                        <select
-                          id="budget"
-                          name="budget"
-                          value={form.budget}
-                          onChange={handleChange}
-                          className="px-4 py-3 rounded-2xl border border-border bg-muted text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-[#5c2967]/30 focus:border-[#5c2967]/50 transition appearance-none cursor-pointer"
-                        >
-                          <option value="">Select budget</option>
-                          <option>Under ₹50 Lakhs</option>
-                          <option>₹50L – ₹1 Crore</option>
-                          <option>₹1Cr – ₹2 Crore</option>
-                          <option>₹2Cr – ₹5 Crore</option>
-                          <option>Above ₹5 Crore</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    {/* Message */}
-                    <div className="flex flex-col gap-2">
-                      <label htmlFor="message" className="text-xs font-semibold text-foreground tracking-wide uppercase">
-                        Your Message
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        rows={4}
-                        value={form.message}
-                        onChange={handleChange}
-                        placeholder="Tell us about your requirements, preferred location, or any specific questions..."
-                        className="px-4 py-3 rounded-2xl border border-border bg-muted text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#5c2967]/30 focus:border-[#5c2967]/50 transition resize-none"
-                      />
-                    </div>
-
-                    {/* Submit */}
-                    <button
-                      type="submit"
-                      disabled={loading}
-                      className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl bg-[#5c2967] text-[#F5D78E] font-semibold text-sm tracking-wide hover:bg-[#7e3e8c] transition-colors disabled:opacity-70 disabled:cursor-not-allowed shadow-lg shadow-[#5c2967]/20"
-                    >
-                      {loading ? (
-                        <>
-                          <span className="w-4 h-4 border-2 border-[#F5D78E]/40 border-t-[#F5D78E] rounded-full animate-spin" />
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          Send Enquiry
-                          <Send size={15} />
-                        </>
-                      )}
-                    </button>
-
-                    <p className="text-center text-muted-foreground text-xs">
-                      We respect your privacy. Your details will never be shared without your consent.
-                    </p>
-                  </form>
-                </>
-              )}
+                )}
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </>

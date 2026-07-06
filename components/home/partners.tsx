@@ -1,125 +1,126 @@
-"use client";
+'use client'
 
-import { motion, useReducedMotion } from "framer-motion";
-import { Quote } from "lucide-react";
+import { motion, useReducedMotion } from 'framer-motion'
+import { Handshake, Sun, Building2, MapPin } from 'lucide-react'
 
-const developers = [
-  { name: "Sobha", tagline: "Quality Builders" },
-  { name: "Prestige", tagline: "Premium Living" },
-  { name: "Mana Projects", tagline: "Modern Spaces" },
-  { name: "Arvind SmartSpaces", tagline: "Smart Homes" },
-  { name: "Abhee Ventures", tagline: "Trusted Builds" },
-  { name: "CKPC Properties", tagline: "Step into a Life in Harmony" },
-];
-
-const testimonials = [
+const collaborations = [
   {
-    quote:
-      "Purple Nest made our home buying journey completely stress-free. Ethesh personally guided us through every step and helped us choose a property that perfectly matched our budget and lifestyle.",
-    name: "Ramesh & Priya Sharma",
-    role: "Homeowners, HSR Layout",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80",
+    name: 'Somasila Solar Power Pvt Ltd',
+    description: 'Civil and infrastructure works',
+    icon: Sun,
   },
   {
-    quote:
-      "The transparency and honesty Purple Nest brings to the table is rare in the real estate space. They recommended only what was genuinely right for us, not what earned them the most commission.",
-    name: "Karthik Murthy",
-    role: "Investor, Whitefield",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80",
+    name: 'Merlin Group',
+    description: 'Civil construction and development works',
+    icon: Building2,
   },
   {
-    quote:
-      "From the very first site visit to finally getting our keys, Purple Nest was by our side. Their knowledge of the Bengaluru market is unmatched.",
-    name: "Anita Reddy",
-    role: "First-time Homebuyer",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80",
+    name: 'Telangana Tourism',
+    description: 'Government civil and infrastructure projects',
+    icon: MapPin,
   },
-];
+  {
+    name: 'TS Warehousing Corporation',
+    description: 'Warehousing infrastructure development',
+    icon: Building2,
+  },
+]
 
-export function Partners() {
-  const prefersReducedMotion = useReducedMotion();
+const highlights = [
+  {
+    title: 'Hyderabad Portfolio',
+    description:
+      'Successfully completed several residential projects across Hyderabad, earning the trust of clients through quality workmanship, timely delivery, and customer-focused execution.',
+  },
+  {
+    title: 'Visakhapatnam Expansion',
+    description:
+      'Currently launching a premium residential development on MVP Beach Road, Visakhapatnam — marking expansion into Andhra Pradesh with contemporary design and superior construction quality.',
+  },
+]
+
+export function Collaborations() {
+  const prefersReducedMotion = useReducedMotion()
 
   const fadeUp = prefersReducedMotion
     ? {}
     : {
         initial: { opacity: 0, y: 20 },
         animate: { opacity: 1, y: 0 },
-      };
+      }
 
   return (
     <>
-      {/* Developer Partners */}
-      <section className="py-20 bg-[#5c2967]">
+      {/* Ongoing Collaborations */}
+      <section className="py-20 bg-espresso">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <p className="text-center text-[#F5D78E]/60 text-xs tracking-widest uppercase mb-10 font-semibold">
-            Our Trusted Developer Partners
+          <p className="text-center text-gold/60 text-xs tracking-widest uppercase mb-4 font-semibold">
+            Ongoing Collaborations
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
-            {developers.map((dev) => (
-              <div
-                key={dev.name}
-                className="px-6 py-3.5 rounded-2xl bg-[#F5D78E]/10 border border-[#F5D78E]/20 hover:bg-[#F5D78E]/15 hover:border-[#F5D78E]/40 transition-colors cursor-default"
-              >
-                <p className="font-heading text-[#F5D78E] text-lg font-semibold">
-                  {dev.name}
-                </p>
-                <p className="text-[#F5D78E]/50 text-[10px] tracking-widest uppercase">
-                  {dev.tagline}
-                </p>
-              </div>
-            ))}
+          <h2 className="font-heading text-4xl md:text-5xl font-light text-cream text-center mb-12 text-balance">
+            Trusted <span className="text-gold font-semibold italic">Partners</span>
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {collaborations.map((collab) => {
+              const Icon = collab.icon
+              return (
+                <div
+                  key={collab.name}
+                  className="px-6 py-5 rounded-2xl bg-gold/10 border border-gold/20 hover:bg-gold/15 hover:border-gold/40 transition-colors cursor-default text-center"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-gold/20 flex items-center justify-center mx-auto mb-3">
+                    <Icon size={18} className="text-gold" />
+                  </div>
+                  <p className="font-heading text-gold text-lg font-semibold leading-tight">
+                    {collab.name}
+                  </p>
+                  <p className="text-gold-soft/50 text-[11px] tracking-widest uppercase mt-1">
+                    {collab.description}
+                  </p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-28 bg-[#faf8f5]">
+      {/* Portfolio Highlights */}
+      <section className="py-28 bg-background">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
           <div className="max-w-xl mb-16">
-            <span className="text-[#5c2967] text-xs tracking-widest uppercase font-semibold mb-4 block">
-              Client Stories
+            <span className="text-gold text-xs tracking-widest uppercase font-semibold mb-4 block">
+              Our Portfolio
             </span>
-            <h2 className="font-heading text-5xl md:text-6xl font-light text-[#1a0d2e] leading-tight text-balance">
-              Trusted by{" "}
-              <span className="text-[#5c2967] font-semibold italic">
-                Families
-              </span>{" "}
-              Across Bengaluru
+            <h2 className="font-heading text-5xl md:text-6xl font-light text-espresso leading-tight text-balance">
+              Projects Across{' '}
+              <span className="text-gold font-semibold italic">
+                Two States
+              </span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {highlights.map((h, i) => (
               <motion.article
-                key={t.name}
+                key={h.title}
                 {...fadeUp}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-card border border-border rounded-3xl p-8 flex flex-col gap-6 hover:shadow-lg hover:shadow-[#5c2967]/8 transition-shadow duration-300"
+                className="bg-card border border-border rounded-3xl p-8 flex flex-col gap-4 hover:shadow-lg hover:shadow-gold/8 transition-shadow duration-300"
               >
-                <Quote
-                  size={28}
-                  className="text-[#F5D78E]"
-                  aria-hidden="true"
-                />
-                <p className="text-foreground/80 text-sm leading-relaxed flex-1 italic">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div className="flex items-center gap-3">
-                  <div>
-                    <p className="text-sm font-semibold text-foreground">
-                      {t.name}
-                    </p>
-                    <p className="text-xs text-muted-foreground">{t.role}</p>
-                  </div>
+                <div className="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center">
+                  <Handshake size={20} className="text-gold" />
                 </div>
+                <h3 className="font-heading text-2xl font-semibold text-foreground">
+                  {h.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {h.description}
+                </p>
               </motion.article>
             ))}
           </div>
         </div>
       </section>
     </>
-  );
+  )
 }

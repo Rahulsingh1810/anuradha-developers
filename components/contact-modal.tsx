@@ -91,7 +91,7 @@ export function ContactModal({ isOpen, onClose, onSubmit, projectName }: Contact
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-[#1a0d2e]/80 backdrop-blur-md"
+            className="fixed inset-0 bg-espresso/80 backdrop-blur-md"
           />
 
           {/* Dialog Container */}
@@ -100,14 +100,14 @@ export function ContactModal({ isOpen, onClose, onSubmit, projectName }: Contact
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 16 }}
             transition={{ type: 'spring', duration: 0.5 }}
-            className="relative z-10 w-full max-w-md overflow-hidden rounded-[2rem] bg-[#faf8f5] border border-[#5c2967]/10 p-8 md:p-10 shadow-2xl shadow-[#5c2967]/40"
+            className="relative z-10 w-full max-w-md overflow-hidden rounded-[2rem] bg-background border border-gold/10 p-8 md:p-10 shadow-2xl shadow-espresso/40"
             role="dialog"
             aria-modal="true"
           >
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-6 right-6 p-2 rounded-full text-[#5c2967]/60 hover:text-[#5c2967] hover:bg-[#5c2967]/5 transition-all cursor-pointer"
+              className="absolute top-6 right-6 p-2 rounded-full text-espresso/60 hover:text-espresso hover:bg-espresso/5 transition-all cursor-pointer"
               aria-label="Close modal"
             >
               <X size={18} />
@@ -117,15 +117,15 @@ export function ContactModal({ isOpen, onClose, onSubmit, projectName }: Contact
               <>
                 {/* Header */}
                 <div className="mb-8 pr-6">
-                  <div className="inline-flex p-3 rounded-2xl bg-[#5c2967]/10 text-[#5c2967] mb-4">
+                  <div className="inline-flex p-3 rounded-2xl bg-gold/10 text-gold mb-4">
                     <Download size={22} className="animate-bounce" />
                   </div>
-                  <h3 className="font-heading text-2xl font-bold text-[#5c2967]">
+                  <h3 className="font-heading text-2xl font-bold text-espresso">
                     Download Brochure
                   </h3>
-                  <p className="text-[#5c2967]/60 text-sm mt-2 leading-relaxed">
+                  <p className="text-muted-foreground text-sm mt-2 leading-relaxed">
                     Please provide your contact details to download the brochure for{' '}
-                    <span className="font-semibold text-[#5c2967]">{projectName}</span>.
+                    <span className="font-semibold text-espresso">{projectName}</span>.
                   </p>
                 </div>
 
@@ -138,11 +138,11 @@ export function ContactModal({ isOpen, onClose, onSubmit, projectName }: Contact
                     </div>
                   )}
                   <div>
-                    <label htmlFor="name" className="block text-xs font-bold uppercase tracking-wider text-[#5c2967]/70 mb-2">
+                    <label htmlFor="name" className="block text-xs font-bold uppercase tracking-wider text-foreground/70 mb-2">
                       Full Name
                     </label>
                     <div className="relative">
-                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#5c2967]/40">
+                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gold/40">
                         <User size={16} />
                       </span>
                       <input
@@ -152,17 +152,17 @@ export function ContactModal({ isOpen, onClose, onSubmit, projectName }: Contact
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="John Doe"
-                        className="w-full pl-11 pr-4 py-3 bg-[#5c2967]/5 border border-[#5c2967]/10 rounded-2xl text-[#5c2967] text-sm focus:outline-none focus:border-[#5c2967]/40 focus:ring-1 focus:ring-[#5c2967]/40 transition-all placeholder:text-[#5c2967]/30"
+                        className="w-full pl-11 pr-4 py-3 bg-muted/50 border border-border rounded-2xl text-foreground text-sm focus:outline-none focus:border-gold/40 focus:ring-1 focus:ring-gold/40 transition-all placeholder:text-muted-foreground/50"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-[#5c2967]/70 mb-2">
+                    <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-foreground/70 mb-2">
                       Email Address
                     </label>
                     <div className="relative">
-                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#5c2967]/40">
+                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gold/40">
                         <Mail size={16} />
                       </span>
                       <input
@@ -172,17 +172,17 @@ export function ContactModal({ isOpen, onClose, onSubmit, projectName }: Contact
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="john@example.com"
-                        className="w-full pl-11 pr-4 py-3 bg-[#5c2967]/5 border border-[#5c2967]/10 rounded-2xl text-[#5c2967] text-sm focus:outline-none focus:border-[#5c2967]/40 focus:ring-1 focus:ring-[#5c2967]/40 transition-all placeholder:text-[#5c2967]/30"
+                        className="w-full pl-11 pr-4 py-3 bg-muted/50 border border-border rounded-2xl text-foreground text-sm focus:outline-none focus:border-gold/40 focus:ring-1 focus:ring-gold/40 transition-all placeholder:text-muted-foreground/50"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-wider text-[#5c2967]/70 mb-2">
+                    <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-wider text-foreground/70 mb-2">
                       Phone Number
                     </label>
                     <div className="relative">
-                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#5c2967]/40">
+                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gold/40">
                         <Phone size={16} />
                       </span>
                       <input
@@ -192,7 +192,7 @@ export function ContactModal({ isOpen, onClose, onSubmit, projectName }: Contact
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         placeholder="+91 XXXXX XXXXX"
-                        className="w-full pl-11 pr-4 py-3 bg-[#5c2967]/5 border border-[#5c2967]/10 rounded-2xl text-[#5c2967] text-sm focus:outline-none focus:border-[#5c2967]/40 focus:ring-1 focus:ring-[#5c2967]/40 transition-all placeholder:text-[#5c2967]/30"
+                        className="w-full pl-11 pr-4 py-3 bg-muted/50 border border-border rounded-2xl text-foreground text-sm focus:outline-none focus:border-gold/40 focus:ring-1 focus:ring-gold/40 transition-all placeholder:text-muted-foreground/50"
                       />
                     </div>
                   </div>
@@ -200,10 +200,10 @@ export function ContactModal({ isOpen, onClose, onSubmit, projectName }: Contact
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full flex items-center justify-center gap-2 py-4 mt-6 rounded-2xl bg-[#5c2967] text-[#F5D78E] font-semibold text-sm tracking-wide hover:bg-[#7e3e8c] disabled:bg-[#5c2967]/50 disabled:pointer-events-none transition-colors cursor-pointer shadow-lg shadow-[#5c2967]/15"
+                    className="w-full flex items-center justify-center gap-2 py-4 mt-6 rounded-2xl bg-gold text-espresso font-semibold text-sm tracking-wide hover:bg-gold-soft disabled:bg-gold/50 disabled:pointer-events-none transition-colors cursor-pointer shadow-lg shadow-gold/15"
                   >
                     {isSubmitting ? (
-                      <span className="inline-block w-5 h-5 rounded-full border-2 border-[#F5D78E] border-t-transparent animate-spin" />
+                      <span className="inline-block w-5 h-5 rounded-full border-2 border-espresso border-t-transparent animate-spin" />
                     ) : (
                       <>
                         <span>Submit & Download</span>
@@ -223,10 +223,10 @@ export function ContactModal({ isOpen, onClose, onSubmit, projectName }: Contact
                 >
                   <CheckCircle2 size={36} />
                 </motion.div>
-                <h3 className="font-heading text-2xl font-bold text-[#5c2967] mb-2">
+                <h3 className="font-heading text-2xl font-bold text-espresso mb-2">
                   Thank You!
                 </h3>
-                <p className="text-[#5c2967]/60 text-sm leading-relaxed max-w-[280px]">
+                <p className="text-muted-foreground text-sm leading-relaxed max-w-[280px]">
                   Your details have been registered. The brochure download will start automatically.
                 </p>
               </div>

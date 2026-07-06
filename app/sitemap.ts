@@ -3,25 +3,25 @@ import { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://purplenest.space',
+      url: 'https://anuradhadevelopers.com',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
     },
     {
-      url: 'https://purplenest.space/about',
+      url: 'https://anuradhadevelopers.com/about',
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.8,
     },
     {
-      url: 'https://purplenest.space/projects',
+      url: 'https://anuradhadevelopers.com/services',
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: 'https://purplenest.space/contact',
+      url: 'https://anuradhadevelopers.com/contact',
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.8,

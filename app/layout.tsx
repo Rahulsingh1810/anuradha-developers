@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Cormorant_Garamond, Inter, Geist_Mono } from 'next/font/google'
+import { Cormorant_Garamond, Plus_Jakarta_Sans, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
@@ -12,8 +12,8 @@ const cormorant = Cormorant_Garamond({
   weight: ['300', '400', '500', '600', '700'],
 })
 
-const inter = Inter({
-  variable: '--font-inter',
+const jakarta = Plus_Jakarta_Sans({
+  variable: '--font-jakarta',
   subsets: ['latin'],
 })
 
@@ -23,39 +23,33 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Purple Nest — Finding Your Perfect Nest',
+  title: 'Anuradha Developers & Design Group — Building Excellence, Creating Value',
   description:
-    'Purple Nest is a Bengaluru-based real estate advisory and channel partner firm committed to connecting homebuyers and investors with India\'s most trusted developers.',
+    'Anuradha Developers & Design Group is a Hyderabad-based construction and infrastructure company delivering high-quality residential, industrial, and government projects since 2017.',
   keywords: [
-    'real estate',
-    'Bengaluru',
-    'property',
-    'advisory',
-    'Sobha',
-    'Prestige',
-    'Purple Nest',
-    'buy property in Bangalore',
-    'real estate investments',
-    'apartments in Bangalore',
-    'villas in Bangalore',
-    'commercial properties',
-    'real estate advisory Bengaluru',
-    'luxury homes Bengaluru',
-    'new launch projects'
+    'construction company Hyderabad',
+    'Anuradha Developers',
+    'residential construction',
+    'layout development',
+    'industrial infrastructure',
+    'government projects Telangana',
+    'villas Hyderabad',
+    'turnkey construction',
+    'Dasari Prasad',
+    'Visakhapatnam real estate',
+    'construction Telangana',
+    'infrastructure development',
   ],
-  generator: 'v0.app',
-  metadataBase: new URL('https://purplenest.space'),
-  verification: {
-    google: '35af7cUBlDqwmn-WwaI0tiKg3Y1V93DFq8s1p58WYxE',
-  },
+  metadataBase: new URL('https://anuradhadevelopers.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Purple Nest — Finding Your Perfect Nest',
-    description: 'Purple Nest is a Bengaluru-based real estate advisory and channel partner firm committed to connecting homebuyers and investors with India\'s most trusted developers.',
-    url: 'https://purplenest.space',
-    siteName: 'Purple Nest',
+    title: 'Anuradha Developers & Design Group — Building Excellence, Creating Value',
+    description:
+      'Delivering high-quality construction and infrastructure solutions through innovation, integrity, and engineering excellence since 2017.',
+    url: 'https://anuradhadevelopers.com',
+    siteName: 'Anuradha Developers & Design Group',
     locale: 'en_IN',
     type: 'website',
     images: [
@@ -63,14 +57,15 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Purple Nest',
+        alt: 'Anuradha Developers & Design Group',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Purple Nest — Finding Your Perfect Nest',
-    description: 'Purple Nest is a Bengaluru-based real estate advisory and channel partner firm committed to connecting homebuyers and investors with India\'s most trusted developers.',
+    title: 'Anuradha Developers & Design Group — Building Excellence',
+    description:
+      'Delivering high-quality construction and infrastructure solutions through innovation, integrity, and engineering excellence since 2017.',
   },
   icons: {
     icon: [
@@ -84,7 +79,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: 'light',
-  themeColor: '#5c2967',
+  themeColor: '#c8a96e',
 }
 
 export default function RootLayout({
@@ -95,7 +90,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${inter.variable} ${geistMono.variable} bg-background`}
+      className={`${cormorant.variable} ${jakarta.variable} ${geistMono.variable} bg-background`}
     >
       <body className="font-sans antialiased">
         <Navbar />

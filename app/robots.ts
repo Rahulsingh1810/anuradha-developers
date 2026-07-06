@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: 'https://purplenest.space/sitemap.xml',
+    sitemap: 'https://anuradhadevelopers.com/sitemap.xml',
   }
 }
