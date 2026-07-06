@@ -15,6 +15,7 @@ const services = [
   {
     icon: Home,
     title: 'Residential Construction',
+    image: '/service-residential.png',
     description:
       'We specialise in building premium villas, independent houses, and residential apartment projects. From turnkey construction solutions to renovation and redevelopment — we deliver homes that stand the test of time.',
     features: [
@@ -28,6 +29,7 @@ const services = [
   {
     icon: LayoutGrid,
     title: 'Layout Development',
+    image: '/service-layout.png',
     description:
       'End-to-end residential and commercial layout development with complete site infrastructure, including internal roads, drainage systems, water supply networks, and utility installations.',
     features: [
@@ -41,6 +43,7 @@ const services = [
   {
     icon: Factory,
     title: 'Industrial & Infrastructure',
+    image: '/service-industrial.png',
     description:
       'Comprehensive civil works for industrial facilities, renewable energy infrastructure, warehousing, institutional buildings, and both public and private infrastructure development projects.',
     features: [
@@ -54,6 +57,7 @@ const services = [
   {
     icon: Landmark,
     title: 'Government Projects',
+    image: '/service-government.png',
     description:
       'We have successfully executed civil and infrastructure works for prestigious government organisations, demonstrating our capability to deliver high-quality results under stringent requirements.',
     features: [
@@ -127,23 +131,31 @@ export default function ServicesPage() {
                   </ul>
                 </div>
 
-                {/* Visual Card */}
+                {/* Image */}
                 <div
                   className={`${
                     !isEven ? 'lg:order-1 lg:direction-ltr' : ''
                   }`}
                 >
-                  <div className="bg-card border border-border rounded-3xl p-10 md:p-14 text-center hover:shadow-xl hover:shadow-gold/8 transition-shadow duration-300">
-                    <div className="w-20 h-20 rounded-3xl bg-gold/10 flex items-center justify-center mx-auto mb-6">
-                      <Icon size={36} className="text-gold" />
+                  <div className="relative rounded-3xl overflow-hidden border border-border shadow-xl shadow-gold/5 group">
+                    <div className="aspect-[4/3]">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
                     </div>
-                    <p className="font-heading text-2xl font-semibold text-foreground">
-                      {service.title}
-                    </p>
-                    <div className="hairline mt-6 mx-auto max-w-[60%]" />
-                    <p className="text-muted-foreground text-sm mt-4">
-                      {service.features.length} specialisations
-                    </p>
+                    {/* Overlay label */}
+                    <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-espresso/80 via-espresso/40 to-transparent p-6 pt-16">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-gold/20 backdrop-blur-sm flex items-center justify-center">
+                          <Icon size={18} className="text-gold" />
+                        </div>
+                        <p className="font-heading text-xl font-semibold text-cream">
+                          {service.title}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

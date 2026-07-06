@@ -121,7 +121,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="aspect-[4/5] rounded-3xl overflow-hidden border border-border shadow-xl shadow-gold/5">
                 <img
-                  src="/founder.jpeg"
+                  src="/profile.png"
                   alt="Mr. Dasari Prasad — Founder, Anuradha Developers & Design Group"
                   className="w-full h-full object-cover"
                 />
