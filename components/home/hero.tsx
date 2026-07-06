@@ -7,28 +7,28 @@ import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const slides = [
   {
-    image: '/property-2.jpeg',
+    image: '/hero-infrastructure.png',
     subtitle: 'Construction & Infrastructure Excellence',
     heading: ['Building', 'Excellence'],
     description:
       'Delivering high-quality construction and infrastructure solutions through innovation, integrity, and engineering excellence.',
   },
   {
-    image: '/property-1.jpeg',
+    image: '/hero-residential.png',
     subtitle: 'Premium Residential Projects',
     heading: ['Creating', 'Value'],
     description:
       'Premium villas, independent houses, and residential apartments crafted with superior quality across Telangana and Andhra Pradesh.',
   },
   {
-    image: '/property-4.jpeg',
+    image: '/hero-industrial.png',
     subtitle: 'Industrial & Layout Development',
     heading: ['Delivering', 'Trust'],
     description:
       'End-to-end layout development, industrial infrastructure, and government project execution with unwavering commitment.',
   },
   {
-    image: '/property-6.jpeg',
+    image: '/hero-horizons.png',
     subtitle: 'Expanding Horizons',
     heading: ['Transforming', 'Landscapes'],
     description:
