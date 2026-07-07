@@ -7,6 +7,9 @@ import {
   LayoutGrid,
   Factory,
   Landmark,
+  Building2,
+  TreePine,
+  Sparkles,
   ArrowRight,
   CheckCircle2,
 } from 'lucide-react'
@@ -57,7 +60,7 @@ const services = [
   {
     icon: Landmark,
     title: 'Government Projects',
-    image: '/service-government.png',
+    image: '/govt.png',
     description:
       'We have successfully executed civil and infrastructure works for prestigious government organisations, demonstrating our capability to deliver high-quality results under stringent requirements.',
     features: [
@@ -164,42 +167,222 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Portfolio Highlight */}
-      <section className="py-20 bg-muted/50">
+      {/* Current & Upcoming Projects */}
+      <section className="py-28 bg-muted/50">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <span className="text-gold text-xs tracking-widest uppercase font-semibold mb-4 block">
-              Residential Portfolio
+              Our Projects
             </span>
             <h2 className="font-heading text-5xl md:text-6xl font-light text-espresso leading-tight text-balance">
-              Delivering <span className="text-gold font-semibold italic">Quality</span> Across Regions
+              Current &amp; <span className="text-gold font-semibold italic">Upcoming Projects</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-card border border-border rounded-3xl p-8 md:p-10">
-              <h3 className="font-heading text-2xl font-semibold text-foreground mb-3">
-                Hyderabad Projects
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Successfully completed several residential projects across Hyderabad,
-                earning the trust of clients through quality workmanship, timely
-                delivery, and customer-focused execution.
-              </p>
-            </div>
-            <div className="bg-espresso border border-gold/20 rounded-3xl p-8 md:p-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/20 text-gold text-[10px] tracking-widest uppercase font-semibold mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
-                Upcoming
+          <div className="space-y-16">
+            {/* Project 1 — Hitech City Apartment */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              {/* Image */}
+              <div>
+                <div className="relative rounded-3xl overflow-hidden border border-border shadow-xl shadow-gold/5 group">
+                  <div className="aspect-[4/3]">
+                    <img
+                      src="/hero-residential.png"
+                      alt="Premium Semi-Gated Community Apartment at Hitech City"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-espresso/80 via-espresso/40 to-transparent p-6 pt-16">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-gold/20 backdrop-blur-sm flex items-center justify-center">
+                        <Building2 size={18} className="text-gold" />
+                      </div>
+                      <div>
+                        <p className="font-heading text-xl font-semibold text-cream">
+                          Premium Apartment Community
+                        </p>
+                        <p className="text-gold-soft/60 text-xs tracking-wide">
+                          Hitech City, Hyderabad
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 className="font-heading text-2xl font-semibold text-cream mb-3">
-                Visakhapatnam — MVP Beach Road
-              </h3>
-              <p className="text-gold-soft/70 leading-relaxed">
-                Currently launching a premium residential development on MVP Beach
-                Road, Visakhapatnam — marking our expansion into Andhra Pradesh with
-                contemporary design and superior construction quality.
-              </p>
+
+              {/* Content */}
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold/20 text-gold text-[10px] tracking-widest uppercase font-semibold mb-5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
+                  Ongoing
+                </div>
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center flex-shrink-0">
+                    <Building2 size={26} className="text-gold" />
+                  </div>
+                  <div>
+                    <h3 className="font-heading text-3xl md:text-4xl font-semibold text-espresso leading-tight">
+                      Premium Semi-Gated Community Apartment
+                    </h3>
+                    <p className="text-muted-foreground text-sm mt-1">
+                      Hitech City, Hyderabad
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gold font-heading text-lg italic mb-3">
+                  Experience the perfect blend of modern living, convenience, and comfort.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Enjoy a well-planned lifestyle in one of Hyderabad&apos;s most sought-after locations, surrounded by excellent connectivity, urban conveniences, and a vibrant neighborhood. Designed for families and professionals alike, this thoughtfully developed community offers the ideal balance of privacy, comfort, and accessibility.
+                </p>
+                <ul className="space-y-2.5">
+                  {['Prime Hitech City location', 'Semi-gated community with modern amenities', 'Excellent connectivity & urban conveniences', 'Designed for families & professionals'].map((item) => (
+                    <li key={item} className="flex items-center gap-3 text-foreground text-sm">
+                      <CheckCircle2 size={16} className="text-gold flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Project 2 — Infrastructure & Warehousing */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              {/* Content */}
+              <div className="lg:order-2">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-espresso/10 text-espresso text-[10px] tracking-widest uppercase font-semibold mb-5">
+                  Infrastructure &amp; Warehousing
+                </div>
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center flex-shrink-0">
+                    <Factory size={26} className="text-gold" />
+                  </div>
+                  <div>
+                    <h3 className="font-heading text-3xl md:text-4xl font-semibold text-espresso leading-tight">
+                      Modern Warehouse Complexes
+                    </h3>
+                    <p className="text-muted-foreground text-sm mt-1">
+                      Telangana State Warehousing Corporation
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gold font-heading text-lg italic mb-3">
+                  Constructing modern warehouse complexes for the Telangana State Warehousing Corporation.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Successfully constructing modern warehouse complexes for the Telangana State Warehousing Corporation, delivering high-quality, durable, and efficient storage infrastructure that supports the state&apos;s agricultural and logistics network.
+                </p>
+                <ul className="space-y-2.5">
+                  {['Government-grade warehouse construction', 'High-quality, durable infrastructure', 'Efficient storage solutions', 'Supporting agricultural & logistics network'].map((item) => (
+                    <li key={item} className="flex items-center gap-3 text-foreground text-sm">
+                      <CheckCircle2 size={16} className="text-gold flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Image */}
+              <div className="lg:order-1">
+                <div className="relative rounded-3xl overflow-hidden border border-border shadow-xl shadow-gold/5 group">
+                  <div className="aspect-[4/3]">
+                    <img
+                      src="/hero-industrial.png"
+                      alt="Modern Warehouse Complexes"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-espresso/80 via-espresso/40 to-transparent p-6 pt-16">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-gold/20 backdrop-blur-sm flex items-center justify-center">
+                        <Factory size={18} className="text-gold" />
+                      </div>
+                      <div>
+                        <p className="font-heading text-xl font-semibold text-cream">
+                          Warehouse Infrastructure
+                        </p>
+                        <p className="text-gold-soft/60 text-xs tracking-wide">
+                          TS Warehousing Corporation
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 3 — Vikarabad Farm Plots */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              {/* Image */}
+              <div>
+                <div className="relative rounded-3xl overflow-hidden border border-border shadow-xl shadow-gold/5 group">
+                  <div className="aspect-[4/3]">
+                    <img
+                      src="/hero-horizons.png"
+                      alt="Premium Gated Farm Plot Community at Vikarabad"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-espresso/80 via-espresso/40 to-transparent p-6 pt-16">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-gold/20 backdrop-blur-sm flex items-center justify-center">
+                        <TreePine size={18} className="text-gold" />
+                      </div>
+                      <div>
+                        <p className="font-heading text-xl font-semibold text-cream">
+                          Gated Farm Plots
+                        </p>
+                        <p className="text-gold-soft/60 text-xs tracking-wide">
+                          Jaidupally, Vikarabad
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-100 text-green-700 text-[10px] tracking-widest uppercase font-semibold mb-5">
+                  <Sparkles size={12} />
+                  Launching Soon
+                </div>
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center flex-shrink-0">
+                    <TreePine size={26} className="text-gold" />
+                  </div>
+                  <div>
+                    <h3 className="font-heading text-3xl md:text-4xl font-semibold text-espresso leading-tight">
+                      Premium Gated Farm Plot Community
+                    </h3>
+                    <p className="text-muted-foreground text-sm mt-1">
+                      Jaidupally, Vikarabad — 50 Acres
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gold font-heading text-lg italic mb-3">
+                  Experience the perfect blend of nature, greenery, and peaceful living.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  Escape the city&apos;s hustle and embrace a serene lifestyle surrounded by lush landscapes, fresh air, and a thriving green ecosystem. Designed for nature lovers, weekend retreats, and long-term investment, this thoughtfully planned gated community offers the ideal balance of comfort and sustainability.
+                </p>
+                <div className="bg-gold/5 border border-gold/20 rounded-2xl p-4 mb-6">
+                  <p className="font-heading text-xl font-semibold text-espresso italic">
+                    A Touch of Nature. A Greener Tomorrow.
+                  </p>
+                  <p className="text-muted-foreground text-sm mt-1">
+                    Own your piece of paradise in the heart of Vikarabad.
+                  </p>
+                </div>
+                <ul className="space-y-2.5">
+                  {['50 Acres of premium gated farm plots', 'Lush landscapes & green ecosystem', 'Ideal for weekend retreats & investment', 'Thoughtfully planned sustainable community'].map((item) => (
+                    <li key={item} className="flex items-center gap-3 text-foreground text-sm">
+                      <CheckCircle2 size={16} className="text-gold flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>

@@ -118,18 +118,20 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-            <div className="relative">
-              <div className="aspect-[4/5] rounded-3xl overflow-hidden border border-border shadow-xl shadow-gold/5">
-                <img
-                  src="/profile.png"
-                  alt="Mr. Dasari Prasad — Founder, Anuradha Developers & Design Group"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {/* Decorative card */}
-              <div className="absolute -bottom-6 -left-6 bg-card border border-border rounded-2xl p-5 shadow-lg">
-                <p className="font-heading text-3xl font-bold text-gold">2017</p>
-                <p className="text-muted-foreground text-xs">Year Established</p>
+            <div className="relative flex justify-center lg:justify-end">
+              <div className="w-64 md:w-72 lg:w-80">
+                <div className="aspect-[3/4] rounded-3xl overflow-hidden border border-border shadow-xl shadow-gold/5">
+                  <img
+                    src="/profile.png"
+                    alt="Mr. Dasari Prasad — Founder, Anuradha Developers & Design Group"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {/* Decorative card */}
+                <div className="absolute -bottom-6 -left-2 md:left-auto md:-left-6 bg-card border border-border rounded-2xl p-5 shadow-lg">
+                  <p className="font-heading text-3xl font-bold text-gold">2017</p>
+                  <p className="text-muted-foreground text-xs">Year Established</p>
+                </div>
               </div>
             </div>
           </div>
