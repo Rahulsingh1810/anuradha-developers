@@ -268,7 +268,7 @@ export default function AboutPage() {
           </div>
 
           {/* Bottom row — 3 items centered */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-[75%] mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:max-w-[75%] mx-auto">
             {coreValues.slice(4).map((value, i) => {
               const Icon = value.icon
               return (

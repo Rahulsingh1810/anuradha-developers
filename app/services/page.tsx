@@ -67,8 +67,6 @@ const services = [
       'Telangana Tourism — Civil works',
       'Telangana State Warehousing Corporation',
       'Public infrastructure development',
-      'Compliance with government standards',
-      'Timely project delivery',
     ],
   },
 ]
@@ -103,12 +101,34 @@ export default function ServicesPage() {
             return (
               <div
                 key={service.title}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-center ${
-                  !isEven ? 'lg:direction-rtl' : ''
-                }`}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
               >
+                {/* Image — always first in DOM for mobile */}
+                <div className={isEven ? 'lg:order-2' : ''}>
+                  <div className="relative rounded-3xl overflow-hidden border border-border shadow-xl shadow-gold/5 group">
+                    <div className="aspect-[4/3]">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                    {/* Overlay label */}
+                    <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-espresso/80 via-espresso/40 to-transparent p-6 pt-16">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-gold/20 backdrop-blur-sm flex items-center justify-center">
+                          <Icon size={18} className="text-gold" />
+                        </div>
+                        <p className="font-heading text-xl font-semibold text-cream">
+                          {service.title}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 {/* Content */}
-                <div className={!isEven ? 'lg:order-2 lg:direction-ltr' : ''}>
+                <div className={isEven ? 'lg:order-1' : ''}>
                   <div className="w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center mb-6">
                     <Icon size={26} className="text-gold" />
                   </div>
@@ -132,34 +152,6 @@ export default function ServicesPage() {
                       </li>
                     ))}
                   </ul>
-                </div>
-
-                {/* Image */}
-                <div
-                  className={`${
-                    !isEven ? 'lg:order-1 lg:direction-ltr' : ''
-                  }`}
-                >
-                  <div className="relative rounded-3xl overflow-hidden border border-border shadow-xl shadow-gold/5 group">
-                    <div className="aspect-[4/3]">
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                    </div>
-                    {/* Overlay label */}
-                    <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-espresso/80 via-espresso/40 to-transparent p-6 pt-16">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-gold/20 backdrop-blur-sm flex items-center justify-center">
-                          <Icon size={18} className="text-gold" />
-                        </div>
-                        <p className="font-heading text-xl font-semibold text-cream">
-                          {service.title}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             )
@@ -187,7 +179,7 @@ export default function ServicesPage() {
                 <div className="relative rounded-3xl overflow-hidden border border-border shadow-xl shadow-gold/5 group">
                   <div className="aspect-[4/3]">
                     <img
-                      src="/hero-residential.png"
+                      src="/project-hitech-city.png"
                       alt="Premium Semi-Gated Community Apartment at Hitech City"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
@@ -248,6 +240,34 @@ export default function ServicesPage() {
 
             {/* Project 2 — Infrastructure & Warehousing */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              {/* Image — always first in DOM for mobile */}
+              <div className="lg:order-1">
+                <div className="relative rounded-3xl overflow-hidden border border-border shadow-xl shadow-gold/5 group">
+                  <div className="aspect-[4/3]">
+                    <img
+                      src="/project-warehouse.png"
+                      alt="Modern Warehouse Complexes"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-espresso/80 via-espresso/40 to-transparent p-6 pt-16">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-gold/20 backdrop-blur-sm flex items-center justify-center">
+                        <Factory size={18} className="text-gold" />
+                      </div>
+                      <div>
+                        <p className="font-heading text-xl font-semibold text-cream">
+                          Warehouse Infrastructure
+                        </p>
+                        <p className="text-gold-soft/60 text-xs tracking-wide">
+                          TS Warehousing Corporation
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* Content */}
               <div className="lg:order-2">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-espresso/10 text-espresso text-[10px] tracking-widest uppercase font-semibold mb-5">
@@ -281,34 +301,6 @@ export default function ServicesPage() {
                   ))}
                 </ul>
               </div>
-
-              {/* Image */}
-              <div className="lg:order-1">
-                <div className="relative rounded-3xl overflow-hidden border border-border shadow-xl shadow-gold/5 group">
-                  <div className="aspect-[4/3]">
-                    <img
-                      src="/hero-industrial.png"
-                      alt="Modern Warehouse Complexes"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-espresso/80 via-espresso/40 to-transparent p-6 pt-16">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-gold/20 backdrop-blur-sm flex items-center justify-center">
-                        <Factory size={18} className="text-gold" />
-                      </div>
-                      <div>
-                        <p className="font-heading text-xl font-semibold text-cream">
-                          Warehouse Infrastructure
-                        </p>
-                        <p className="text-gold-soft/60 text-xs tracking-wide">
-                          TS Warehousing Corporation
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
             {/* Project 3 — Vikarabad Farm Plots */}
@@ -318,7 +310,7 @@ export default function ServicesPage() {
                 <div className="relative rounded-3xl overflow-hidden border border-border shadow-xl shadow-gold/5 group">
                   <div className="aspect-[4/3]">
                     <img
-                      src="/hero-horizons.png"
+                      src="/project-vikarabad.png"
                       alt="Premium Gated Farm Plot Community at Vikarabad"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />

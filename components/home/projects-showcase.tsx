@@ -10,7 +10,7 @@ const projects = [
     icon: Building2,
     title: 'Premium Semi-Gated Community Apartment',
     location: 'Hitech City, Hyderabad',
-    image: '/hero-residential.png',
+    image: '/project-hitech-city.png',
     description:
       'Experience the perfect blend of modern living, convenience, and comfort.',
     body: 'Enjoy a well-planned lifestyle in one of Hyderabad\'s most sought-after locations, surrounded by excellent connectivity, urban conveniences, and a vibrant neighborhood. Designed for families and professionals alike, this thoughtfully developed community offers the ideal balance of privacy, comfort, and accessibility.',
@@ -27,7 +27,7 @@ const projects = [
     icon: Factory,
     title: 'Modern Warehouse Complexes',
     location: 'Telangana State Warehousing Corporation',
-    image: '/hero-industrial.png',
+    image: '/project-warehouse.png',
     description:
       'Constructing modern warehouse complexes for the Telangana State Warehousing Corporation.',
     body: 'Successfully constructing modern warehouse complexes for the Telangana State Warehousing Corporation, delivering high-quality, durable, and efficient storage infrastructure that supports the state\'s agricultural and logistics network.',
@@ -44,7 +44,7 @@ const projects = [
     icon: TreePine,
     title: 'Premium Gated Farm Plot Community',
     location: 'Jaidupally, Vikarabad',
-    image: '/hero-horizons.png',
+    image: '/project-vikarabad.png',
     description:
       'Experience the perfect blend of nature, greenery, and peaceful living.',
     body: 'Escape the city\'s hustle and embrace a serene lifestyle surrounded by lush landscapes, fresh air, and a thriving green ecosystem. Designed for nature lovers, weekend retreats, and long-term investment, this thoughtfully planned gated community offers the ideal balance of comfort and sustainability.',
