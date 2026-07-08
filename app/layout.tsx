@@ -40,15 +40,18 @@ export const metadata: Metadata = {
     'construction Telangana',
     'infrastructure development',
   ],
-  metadataBase: new URL('https://anuradhadevelopers.com'),
+  metadataBase: new URL('https://anuradhadevelopers.in'),
   alternates: {
     canonical: '/',
+  },
+  verification: {
+    google: 'C9dfUf1R9cVSuPw_IDcis42zeQaOdhdiUHmG6SPduE8',
   },
   openGraph: {
     title: 'Anuradha Developers & Design Group — Building Excellence, Creating Value',
     description:
       'Delivering high-quality construction and infrastructure solutions through innovation, integrity, and engineering excellence since 2017.',
-    url: 'https://anuradhadevelopers.com',
+    url: 'https://anuradhadevelopers.in',
     siteName: 'Anuradha Developers & Design Group',
     locale: 'en_IN',
     type: 'website',

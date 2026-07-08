@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer'
 export async function POST(req: Request) {
   try {
     const body = await req.json()
-    const { type, name, email, phone, projectName, interest, budget, message } = body
+    const { type, name, email, phone, projectName, interest, budget, message, subject: bodySubject } = body
 
     // Validation
     if (!name || !phone) {
@@ -90,8 +90,8 @@ export async function POST(req: Request) {
           <td class="value"><a href="tel:${phone}" style="color: #5c2967; text-decoration: none;">${phone}</a></td>
         </tr>
         <tr>
-          <td class="label">Interested In</td>
-          <td class="value">${interest || 'Not specified'}</td>
+          <td class="label">Subject</td>
+          <td class="value">${bodySubject || interest || 'Not specified'}</td>
         </tr>
         <tr>
           <td class="label">Budget</td>
@@ -242,7 +242,7 @@ export async function POST(req: Request) {
       <div class="wrapper">
         <div class="container">
           <div class="header">
-            <h1>Purple <span>Nest</span></h1>
+            <h1>Anuradha <span>Developers</span></h1>
             <div class="badge">${leadType}</div>
           </div>
           <div class="content">
@@ -255,8 +255,8 @@ export async function POST(req: Request) {
             </table>
           </div>
           <div class="footer">
-            <p>This is an automated notification from <a href="https://www.purplenest.in" target="_blank">Purple Nest</a>.</p>
-            <p>&copy; 2026 Purple Nest. All rights reserved.</p>
+            <p>This is an automated notification from <a href="https://anuradhadevelopers.in" target="_blank">Anuradha Developers</a>.</p>
+            <p>&copy; 2026 Anuradha Developers. All rights reserved.</p>
           </div>
         </div>
       </div>
@@ -266,10 +266,10 @@ export async function POST(req: Request) {
 
     const subject = type === 'brochure' 
       ? `Brochure Download Alert: ${projectName || 'Property'} - ${name}`
-      : `New Website Enquiry: ${interest || 'General'} - ${name}`
+      : `New Website Enquiry: ${bodySubject || interest || 'General'} - ${name}`
 
     const mailOptions = {
-      from: `Purple Nest Website <${user}>`,
+      from: `Anuradha Developers Website <${user}>`,
       to: recipient,
       subject,
       html: htmlTemplate,

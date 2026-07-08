@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: 'https://anuradhadevelopers.com/sitemap.xml',
+    sitemap: 'https://anuradhadevelopers.in/sitemap.xml',
   }
 }
