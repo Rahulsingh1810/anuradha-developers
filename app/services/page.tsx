@@ -360,7 +360,7 @@ export default function ServicesPage() {
                   </div>
                   <div>
                     <h3 className="font-heading text-3xl md:text-4xl font-semibold text-espresso leading-tight">
-                      Premium Gated Farm Plot Community
+                      Premium Gated Farm Plotting Community
                     </h3>
                     <p className="text-muted-foreground text-sm mt-1">
                       Jaidupalli, Vikarabad — 50 Acres

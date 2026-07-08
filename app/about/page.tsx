@@ -101,7 +101,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Anuradha Developers & Design Group was a vision of Late Dasari Anuradha Murty and Established in 2017 by Mr Dasari Prasad to deliver  high-quality
+                  Anuradha Developers & Design Group was the vision of Late Dasari Anuradha Murty and Established in 2017 by Mr Dasari Prasad to deliver  high-quality
                   construction and infrastructure solutions through innovation,
                   integrity, and engineering excellence.
                 </p>

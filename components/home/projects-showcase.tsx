@@ -42,7 +42,7 @@ const projects = [
     badge: 'Launching Soon',
     badgeColor: 'bg-green-100 text-green-700',
     icon: TreePine,
-    title: 'Premium Gated Farm Plot Community',
+    title: 'Premium Gated Farm Plotting Community',
     location: 'Jaidupalli, Vikarabad',
     image: '/project-vikarabad.png',
     description:

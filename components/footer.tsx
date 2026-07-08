@@ -67,17 +67,26 @@ export function Footer() {
           </ul>
         </div>
 
-        {/* Our Collaborations */}
+        {/* Our Collaborations & Legal Partners */}
         <div>
           <h3 className="font-heading text-gold text-lg font-semibold mb-5 tracking-wide">
             Our Collaborations
           </h3>
-          <ul className="flex flex-col gap-3">
+          <ul className="flex flex-col gap-3 mb-8">
             {collaborations.map((collab) => (
               <li key={collab} className="text-sm">
                 {collab}
               </li>
             ))}
+          </ul>
+
+          <h3 className="font-heading text-gold text-lg font-semibold mb-5 tracking-wide">
+            Legal Partners
+          </h3>
+          <ul className="flex flex-col gap-3">
+            <li className="text-sm">
+              Bommi Law Associates
+            </li>
           </ul>
         </div>
 
