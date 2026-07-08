@@ -17,7 +17,7 @@ const coreValues = [
     icon: Shield,
     label: 'Integrity',
     description:
-      'We uphold the highest ethical standards in every transaction, building relationships founded on honesty, transparency, and mutual respect.',
+      'We stand by our clients and project, irrespective of the scale of the challenge, with unwavering commitment until every issue is resolved',
   },
   {
     icon: Award,
@@ -79,7 +79,7 @@ export default function AboutPage() {
           </h1>
           <p className="text-gold-soft/70 text-lg max-w-2xl leading-relaxed">
             Established in 2017, Anuradha Developers & Design Group has grown into
-            a trusted name in construction and infrastructure across Telangana and
+            a trusted name in construction, infrastructure and renewable energy projects across Telangana and
             Andhra Pradesh.
           </p>
         </div>
@@ -101,8 +101,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Anuradha Developers & Design Group was established in 2017 by
-                  Mr. Dasari Prasad with a vision to deliver high-quality
+                  Anuradha Developers & Design Group was a vision of Late Dasari Anuradha Murty and Established in 2017 by Mr Dasari Prasad to deliver  high-quality
                   construction and infrastructure solutions through innovation,
                   integrity, and engineering excellence.
                 </p>
@@ -170,10 +169,7 @@ export default function AboutPage() {
                 Vision
               </h2>
               <p className="text-gold-soft/70 leading-relaxed">
-                To become one of India&apos;s most trusted construction and
-                infrastructure companies by delivering innovative, sustainable, and
-                high-quality developments that create lasting value for clients and
-                communities.
+               To shape a greener future by developing quality infrastructure and renewable energy projects that improve lives.
               </p>
             </div>
 

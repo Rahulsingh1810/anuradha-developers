@@ -10,7 +10,7 @@ const projects = [
     icon: Building2,
     title: 'Premium Semi-Gated Community Apartment',
     location: 'Hitech City, Hyderabad',
-    image: '/project-hitech-city.png',
+    image: '/property.jpeg',
     description:
       'Experience the perfect blend of modern living, convenience, and comfort.',
     body: 'Enjoy a well-planned lifestyle in one of Hyderabad\'s most sought-after locations, surrounded by excellent connectivity, urban conveniences, and a vibrant neighborhood. Designed for families and professionals alike, this thoughtfully developed community offers the ideal balance of privacy, comfort, and accessibility.',
@@ -43,7 +43,7 @@ const projects = [
     badgeColor: 'bg-green-100 text-green-700',
     icon: TreePine,
     title: 'Premium Gated Farm Plot Community',
-    location: 'Jaidupally, Vikarabad',
+    location: 'Jaidupalli, Vikarabad',
     image: '/project-vikarabad.png',
     description:
       'Experience the perfect blend of nature, greenery, and peaceful living.',

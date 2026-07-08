@@ -7,32 +7,18 @@ import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const slides = [
   {
-    image: '/hero-infrastructure.png',
+    image: '/hero.jpeg',
     subtitle: 'Construction & Infrastructure Excellence',
     heading: ['Building', 'Excellence'],
     description:
       'Delivering high-quality construction and infrastructure solutions through innovation, integrity, and engineering excellence.',
   },
   {
-    image: '/hero-residential.png',
-    subtitle: 'Premium Residential Projects',
+    image: '/hero-1.jpeg',
+    subtitle: 'Premium Projects & Delivery',
     heading: ['Creating', 'Value'],
     description:
-      'Premium villas, independent houses, and residential apartments crafted with superior quality across Telangana and Andhra Pradesh.',
-  },
-  {
-    image: '/hero-industrial.png',
-    subtitle: 'Industrial & Layout Development',
-    heading: ['Delivering', 'Trust'],
-    description:
-      'End-to-end layout development, industrial infrastructure, and government project execution with unwavering commitment.',
-  },
-  {
-    image: '/hero-horizons.png',
-    subtitle: 'Expanding Horizons',
-    heading: ['Transforming', 'Landscapes'],
-    description:
-      'From Hyderabad to Visakhapatnam — building landmarks that stand the test of time with modern engineering practices.',
+      'Crafting premium infrastructure and superior quality projects across the region with unwavering commitment.',
   },
 ]
 

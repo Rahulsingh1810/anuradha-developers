@@ -10,6 +10,7 @@ import {
   Building2,
   TreePine,
   Sparkles,
+  Sun,
   ArrowRight,
   CheckCircle2,
 } from 'lucide-react'
@@ -67,6 +68,20 @@ const services = [
       'Telangana Tourism — Civil works',
       'Telangana State Warehousing Corporation',
       'Public infrastructure development',
+    ],
+  },
+  {
+    icon: Sun,
+    title: 'Renewable Energy',
+    image: '/renewable.jpeg',
+    description:
+      'Delivering civil construction and installation support for utility-scale solar and clean energy projects. Our expertise spans site development, infrastructure creation, and project execution.',
+    features: [
+      'Utility-scale solar projects',
+      'Site development & infrastructure',
+      'Installation support services',
+      'Clean energy facilities',
+      'Future-ready infrastructure',
     ],
   },
 ]
@@ -179,7 +194,7 @@ export default function ServicesPage() {
                 <div className="relative rounded-3xl overflow-hidden border border-border shadow-xl shadow-gold/5 group">
                   <div className="aspect-[4/3]">
                     <img
-                      src="/project-hitech-city.png"
+                      src="/property.jpeg"
                       alt="Premium Semi-Gated Community Apartment at Hitech City"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
@@ -325,7 +340,7 @@ export default function ServicesPage() {
                           Gated Farm Plots
                         </p>
                         <p className="text-gold-soft/60 text-xs tracking-wide">
-                          Jaidupally, Vikarabad
+                          Jaidupalli, Vikarabad
                         </p>
                       </div>
                     </div>
@@ -348,7 +363,7 @@ export default function ServicesPage() {
                       Premium Gated Farm Plot Community
                     </h3>
                     <p className="text-muted-foreground text-sm mt-1">
-                      Jaidupally, Vikarabad — 50 Acres
+                      Jaidupalli, Vikarabad — 50 Acres
                     </p>
                   </div>
                 </div>
