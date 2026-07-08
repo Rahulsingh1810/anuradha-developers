@@ -271,6 +271,11 @@ export async function POST(req: Request) {
     const mailOptions = {
       from: `Anuradha Developers Website <${user}>`,
       to: recipient,
+      cc: [
+        'info@anuradhadevelopers.in',
+        'prasad@anuradhadevelopers.in',
+        'chandan@anuradhadevelopers.in'
+      ],
       subject,
       html: htmlTemplate,
       replyTo: email || undefined,

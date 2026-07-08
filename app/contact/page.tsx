@@ -135,18 +135,44 @@ export default function ContactPage() {
               </div>
 
               {/* Email */}
-              <a
-                href="mailto:pdasari1978@gmail.com"
-                className="flex items-center gap-4 bg-card border border-border rounded-2xl p-5 hover:border-gold/40 transition-colors group"
-              >
-                <div className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center group-hover:bg-espresso transition-colors">
-                  <Mail size={18} className="text-gold" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="font-semibold text-foreground">pdasari1978@gmail.com</p>
-                </div>
-              </a>
+              <div className="space-y-3">
+                <a
+                  href="mailto:info@anuradhadevelopers.in"
+                  className="flex items-center gap-4 bg-card border border-border rounded-2xl p-5 hover:border-gold/40 transition-colors group"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center group-hover:bg-espresso transition-colors">
+                    <Mail size={18} className="text-gold" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">General Info</p>
+                    <p className="font-semibold text-foreground">info@anuradhadevelopers.in</p>
+                  </div>
+                </a>
+                <a
+                  href="mailto:prasad@anuradhadevelopers.in"
+                  className="flex items-center gap-4 bg-card border border-border rounded-2xl p-5 hover:border-gold/40 transition-colors group"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center group-hover:bg-espresso transition-colors">
+                    <Mail size={18} className="text-gold" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Prasad</p>
+                    <p className="font-semibold text-foreground">prasad@anuradhadevelopers.in</p>
+                  </div>
+                </a>
+                <a
+                  href="mailto:chandan@anuradhadevelopers.in"
+                  className="flex items-center gap-4 bg-card border border-border rounded-2xl p-5 hover:border-gold/40 transition-colors group"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center group-hover:bg-espresso transition-colors">
+                    <Mail size={18} className="text-gold" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Chandan</p>
+                    <p className="font-semibold text-foreground">chandan@anuradhadevelopers.in</p>
+                  </div>
+                </a>
+              </div>
 
               {/* Address */}
               <div className="flex items-start gap-4 bg-card border border-border rounded-2xl p-5">
